@@ -48,7 +48,7 @@ export const Hero = (): React.JSX.Element => (
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: ANIMATION.DURATION, delay: 0.2 }}
-        className="flex justify-end"
+        className="flex justify-center md:justify-end"
       >
         <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[var(--color-accent)] sm:h-80 sm:w-80">
           <img src={heroImage} alt={HERO.name} className="h-full w-full object-cover" />
