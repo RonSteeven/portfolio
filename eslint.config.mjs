@@ -6,7 +6,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import prettierConfig from 'eslint-config-prettier';
 
 export default [
-  { ignores: ['dist', 'coverage', 'cypress'] },
+  { ignores: ['dist', 'coverage', 'cypress', 'scripts'] },
 
   // Base JS rules
   js.configs.recommended,
