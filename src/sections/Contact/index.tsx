@@ -18,10 +18,10 @@ export const Contact = (): React.JSX.Element => {
           title="Get in Touch"
           subtitle={`Based in ${LOCATION} — open to remote work worldwide.`}
         />
-        <motion.div {...staggerProps} className="grid gap-4 sm:grid-cols-3">
+        <motion.div {...staggerProps} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {CONTACT_LINKS.map(link => (
             <motion.a
-              key={link.label}
+              key={link.href}
               href={link.href}
               variants={FADE_UP_VARIANTS}
               {...(link.isExternal && { target: '_blank', rel: 'noopener noreferrer' })}

@@ -27,7 +27,7 @@ describe('Contact', () => {
   it('renders all contact links', () => {
     render(<Contact />);
     expect(screen.getByText('Email')).toBeInTheDocument();
-    expect(screen.getByText('GitHub')).toBeInTheDocument();
+    expect(screen.getAllByText('GitHub')).toHaveLength(2);
     expect(screen.getByText('LinkedIn')).toBeInTheDocument();
   });
 

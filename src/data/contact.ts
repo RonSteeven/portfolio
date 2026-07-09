@@ -18,6 +18,13 @@ export const CONTACT_LINKS: ContactLink[] = [
     isExternal: true,
   },
   {
+    label: 'GitHub',
+    value: 'RonSteeven',
+    href: 'https://github.com/RonSteeven',
+    icon: '🐙',
+    isExternal: true,
+  },
+  {
     label: 'LinkedIn',
     value: 'Ronaldo Monserrate',
     href: 'https://www.linkedin.com/in/ronaldo-monserrate',
