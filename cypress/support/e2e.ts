@@ -1,6 +1,8 @@
-// This file runs before every Cypress spec.
-// Add global setup, custom commands, or third-party imports here.
+// Global Cypress setup — runs before every spec.
 
-// Example: import '@testing-library/cypress/add-commands';
+// Track console.error calls so specs can assert on them.
+Cypress.on('window:before:load', win => {
+  cy.stub(win.console, 'error').as('consoleError');
+});
 
 export {};
