@@ -28,6 +28,9 @@ export default [
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
         IntersectionObserver: 'readonly',
+        HTMLElement: 'readonly',
+        HTMLAnchorElement: 'readonly',
+        HTMLButtonElement: 'readonly',
       },
     },
     plugins: {
@@ -52,9 +55,23 @@ export default [
     },
   },
 
-  // Test files — relax rules
+  // Test files — relax rules and inject Jest globals
   {
-    files: ['**/*.test.{ts,tsx}', '**/setupTests.ts'],
+    files: ['**/*.test.{ts,tsx}', '**/setupTests.ts', '**/__mocks__/**'],
+    languageOptions: {
+      globals: {
+        jest: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+        beforeAll: 'readonly',
+        beforeEach: 'readonly',
+        afterAll: 'readonly',
+        afterEach: 'readonly',
+        React: 'readonly',
+      },
+    },
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       'no-console': 'off',

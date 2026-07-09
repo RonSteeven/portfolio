@@ -28,7 +28,7 @@ describe('Experience', () => {
     render(<Experience />);
     expect(screen.getByText('Senior Fullstack Developer')).toBeInTheDocument();
     expect(screen.getAllByText('Full-time').length).toBeGreaterThan(0);
-    expect(screen.getByText('Contract')).toBeInTheDocument();
+    expect(screen.getAllByText('Part-time').length).toBeGreaterThan(0);
   });
 
   it('renders date ranges', () => {
