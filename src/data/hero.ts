@@ -6,5 +6,5 @@ export const HERO: HeroData = {
   title: 'Fullstack Developer',
   roleTags: ['Software Engineer', 'React', 'Node.js', 'TypeScript'],
   ctaPrimary: { label: 'View Projects', sectionId: SECTION_IDS.PROJECTS },
-  ctaSecondary: { label: 'Download CV', href: 'https://drive.google.com/file/d/1big0buHfHiExVdCaHJzqZ72HG2NJaEHS/view?usp=sharing' },
+  ctaSecondary: { label: 'Download CV', href: 'https://drive.google.com/file/d/1oRBJ6X-GGhn11cXpcT9JPqFaTiXJM_GU/view?usp=sharing' },
 };
