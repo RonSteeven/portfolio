@@ -9,10 +9,10 @@
   --color-border: #1f1f30;
   --color-text: #9ca3af;
   --color-text-heading: #f3f4f6;
-  --color-accent: #8b5cf6;
+  --color-accent: #9061f9;
   --color-accent-light: #a78bfa;
-  --color-tag-bg: rgba(139, 92, 246, 0.1);
-  --color-tag-border: rgba(139, 92, 246, 0.3);
+  --color-tag-bg: rgba(144, 97, 249, 0.1);
+  --color-tag-border: rgba(144, 97, 249, 0.3);
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
