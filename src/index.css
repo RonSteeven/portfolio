@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* ─── Portfolio Design Tokens ────────────────────────────────────────────── */
+
+:root {
+  /* Colors */
+  --color-bg: #0d0d14;
+  --color-bg-card: #13131f;
+  --color-border: #1f1f30;
+  --color-text: #9ca3af;
+  --color-text-heading: #f3f4f6;
+  --color-accent: #8b5cf6;
+  --color-accent-light: #a78bfa;
+  --color-tag-bg: rgba(139, 92, 246, 0.1);
+  --color-tag-border: rgba(139, 92, 246, 0.3);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Transitions */
+  --transition-base: 200ms ease;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────── */
+/* Tailwind Preflight already handles box-sizing and margin resets;
+   do not add a universal reset here — it overrides Tailwind utilities like mx-auto / px-*. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}

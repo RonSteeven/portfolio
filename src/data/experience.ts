@@ -1,0 +1,60 @@
+import type { Experience } from '../types';
+
+export const EXPERIENCE: Experience[] = [
+  {
+    company: 'Vokal',
+    role: 'Senior Fullstack Developer',
+    startDate: '2024',
+    endDate: 'Present',
+    employmentType: 'Full-time',
+    stack: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind CSS'],
+  },
+  {
+    company: 'MLReef',
+    role: 'Fullstack Developer',
+    startDate: '2022',
+    endDate: '2024',
+    employmentType: 'Full-time',
+    stack: ['React', 'Redux', 'TypeScript', 'Node.js', 'GraphQL'],
+  },
+  {
+    company: 'Applaudo Studios',
+    role: 'Fullstack Developer',
+    startDate: '2021',
+    endDate: '2023',
+    employmentType: 'Part-time',
+    stack: ['React', 'Redux', 'GraphQL', 'AWS', 'SASS'],
+  },
+  {
+    company: 'BairesDev',
+    role: 'Frontend Developer',
+    startDate: '2021',
+    endDate: '2021',
+    employmentType: 'Part-time',
+    stack: ['React', 'MobX', 'C#', 'Azure', 'SASS'],
+  },
+  {
+    company: 'Coolhumans',
+    role: 'Frontend Developer',
+    startDate: '2019',
+    endDate: '2021',
+    employmentType: 'Full-time',
+    stack: ['React', 'Redux', 'SASS', 'JavaScript'],
+  },
+  {
+    company: 'Grupo Link / Hiberus',
+    role: 'Fullstack Developer',
+    startDate: '2018',
+    endDate: '2019',
+    employmentType: 'Full-time',
+    stack: ['React', 'Vue', 'React Native', 'Redux', '.NET Core'],
+  },
+  {
+    company: 'Sebioca',
+    role: 'Fullstack Developer',
+    startDate: '2017',
+    endDate: '2018',
+    employmentType: 'Full-time',
+    stack: ['React', 'TypeScript', 'C# .NET Core', 'React Native'],
+  },
+];
