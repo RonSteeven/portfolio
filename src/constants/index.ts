@@ -22,7 +22,18 @@ export const ANIMATION = {
 
 export const FADE_UP_VARIANTS = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: ANIMATION.DURATION, ease: ANIMATION.EASE },
+  },
+} as const;
+
+export const STAGGER_CONTAINER_VARIANTS = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: ANIMATION.DELAY_STEP, delayChildren: 0.1 },
+  },
 } as const;
 
 // ─── Navigation Links ─────────────────────────────────────────────────────────

@@ -6,6 +6,9 @@ jest.mock('framer-motion', () => ({
     div: ({ children, ...rest }: { children: React.ReactNode; [k: string]: unknown }) => (
       <div {...rest}>{children}</div>
     ),
+    a: ({ children, ...rest }: { children: React.ReactNode; [k: string]: unknown }) => (
+      <a {...rest}>{children}</a>
+    ),
   },
   useInView: () => true,
 }));

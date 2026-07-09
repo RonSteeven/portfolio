@@ -1,6 +1,6 @@
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ANIMATION } from '../constants';
+import { ANIMATION, STAGGER_CONTAINER_VARIANTS } from '../constants';
 
 interface ScrollAnimationOptions {
   once?: boolean;
@@ -9,7 +9,9 @@ interface ScrollAnimationOptions {
 
 /**
  * Returns a ref and Framer Motion props for scroll-triggered fade-up animations.
- * Keeps animation logic out of section components (Single Responsibility).
+ * `motionProps`     — simple fade-up for a single element.
+ * `staggerProps`    — parent variant-driven props; pair with FADE_UP_VARIANTS on children
+ *                     to cascade list items into view.
  */
 export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
   const { once = true, threshold = 0.2 } = options;
@@ -22,5 +24,11 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     transition: { duration: ANIMATION.DURATION, ease: ANIMATION.EASE },
   };
 
-  return { ref, motionProps, isInView };
+  const staggerProps = {
+    variants: STAGGER_CONTAINER_VARIANTS,
+    initial: 'hidden' as const,
+    animate: (isInView ? 'visible' : 'hidden') as 'hidden' | 'visible',
+  };
+
+  return { ref, motionProps, staggerProps, isInView };
 };
