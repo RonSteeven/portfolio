@@ -16,10 +16,10 @@ export const Hero = (): React.JSX.Element => (
     id={SECTION_IDS.HERO}
     className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[var(--color-bg-hero)] px-6 py-20"
   >
-    {/* Source code as decorative background */}
+    {/* Source code as decorative background — constrained to the same max-width as content sections */}
     <pre
       aria-hidden
-      className="pointer-events-none absolute inset-0 select-none overflow-hidden whitespace-pre p-8 font-mono text-[10px] leading-relaxed text-[var(--color-nav-link)] opacity-25 sm:text-xs"
+      className="pointer-events-none absolute inset-y-0 left-1/2 w-full max-w-6xl -translate-x-1/2 select-none overflow-hidden whitespace-pre py-8 px-0 font-mono text-[10px] leading-relaxed text-[var(--color-nav-link)] opacity-25 sm:text-xs"
     >
       {heroSource}
     </pre>
