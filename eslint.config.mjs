@@ -1,9 +1,10 @@
 import js from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
+import prettierConfig from 'eslint-config-prettier';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import prettierConfig from 'eslint-config-prettier';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 export default [
   { ignores: ['dist', 'coverage', 'cypress', 'scripts'] },
@@ -37,11 +38,16 @@ export default [
       '@typescript-eslint': tseslint,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      'simple-import-sort': simpleImportSort,
     },
     rules: {
       // TypeScript
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
+      ],
 
       // React Hooks
       'react-hooks/rules-of-hooks': 'error',
@@ -49,6 +55,10 @@ export default [
 
       // React Refresh (HMR)
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+
+      // Import ordering — auto-fixable via `eslint --fix`
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
 
       // General
       'no-console': 'warn',

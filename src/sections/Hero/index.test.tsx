@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import { Hero } from './index';
 
 jest.mock('framer-motion', () => ({
@@ -12,8 +13,8 @@ jest.mock('framer-motion', () => ({
 describe('Hero', () => {
   it('renders the name and title', () => {
     render(<Hero />);
-    expect(screen.getByText('Ronaldo Monserrate')).toBeInTheDocument();
-    expect(screen.getByText('Fullstack Developer')).toBeInTheDocument();
+    expect(screen.getByText("Hello, I'm Ronaldo")).toBeInTheDocument();
+    expect(screen.getByText('Web Developer')).toBeInTheDocument();
   });
 
   it('renders role tags', () => {

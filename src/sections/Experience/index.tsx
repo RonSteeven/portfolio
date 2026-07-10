@@ -1,9 +1,10 @@
-import type React from 'react';
 import { motion } from 'framer-motion';
-import { Card, SectionHeader, Tag } from '../../components';
-import { EXPERIENCE } from '../../data';
-import { FADE_UP_VARIANTS, SECTION_IDS } from '../../constants';
-import { useScrollAnimation } from '../../hooks';
+import type React from 'react';
+
+import { Card, SectionHeader, Tag } from '@/components';
+import { FADE_UP_VARIANTS, SECTION_IDS } from '@/constants';
+import { EXPERIENCE } from '@/data';
+import { useScrollAnimation } from '@/hooks';
 
 export const Experience = (): React.JSX.Element => {
   const { ref, staggerProps } = useScrollAnimation();

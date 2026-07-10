@@ -1,9 +1,10 @@
-import type React from 'react';
 import { motion } from 'framer-motion';
-import { Card, SectionHeader, Tag } from '../../components';
-import { SKILLS } from '../../data';
-import { FADE_UP_VARIANTS, SECTION_IDS } from '../../constants';
-import { useScrollAnimation } from '../../hooks';
+import type React from 'react';
+
+import { Card, SectionHeader, Tag } from '@/components';
+import { FADE_UP_VARIANTS, SECTION_IDS } from '@/constants';
+import { SKILLS } from '@/data';
+import { useScrollAnimation } from '@/hooks';
 
 export const Skills = (): React.JSX.Element => {
   const { ref, staggerProps } = useScrollAnimation();
@@ -14,14 +15,8 @@ export const Skills = (): React.JSX.Element => {
       className="flex min-h-screen items-center justify-center px-6 py-20"
     >
       <div ref={ref} className="w-full max-w-6xl">
-        <SectionHeader
-          title="Skills"
-          subtitle="Technologies and tools I work with day to day."
-        />
-        <motion.div
-          {...staggerProps}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <SectionHeader title="Skills" subtitle="Technologies and tools I work with day to day." />
+        <motion.div {...staggerProps} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SKILLS.map(category => (
             <motion.div key={category.title} variants={FADE_UP_VARIANTS}>
               <Card>

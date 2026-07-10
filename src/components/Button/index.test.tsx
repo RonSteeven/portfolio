@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import { Button } from './index';
 
 describe('Button', () => {
@@ -26,8 +27,6 @@ describe('Button', () => {
 
   it('applies secondary variant classes', () => {
     render(<Button variant="secondary">Secondary</Button>);
-    expect(screen.getByText('Secondary').className).toContain(
-      'border-[var(--color-accent)]'
-    );
+    expect(screen.getByText('Secondary').className).toContain('border-[var(--color-accent)]');
   });
 });

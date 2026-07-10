@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import { IconLink } from './index';
 
 describe('IconLink', () => {
@@ -10,10 +11,7 @@ describe('IconLink', () => {
 
   it('links to the correct href', () => {
     render(<IconLink icon="🐙" label="GitHub" href="https://github.com" />);
-    expect(screen.getByText('GitHub').closest('a')).toHaveAttribute(
-      'href',
-      'https://github.com'
-    );
+    expect(screen.getByText('GitHub').closest('a')).toHaveAttribute('href', 'https://github.com');
   });
 
   it('opens in a new tab when external is true', () => {

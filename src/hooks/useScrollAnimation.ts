@@ -1,6 +1,7 @@
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ANIMATION, STAGGER_CONTAINER_VARIANTS } from '../constants';
+
+import { ANIMATION, STAGGER_CONTAINER_VARIANTS } from '@/constants';
 
 interface ScrollAnimationOptions {
   once?: boolean;

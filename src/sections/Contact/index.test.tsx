@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import { Contact } from './index';
 
 jest.mock('framer-motion', () => ({

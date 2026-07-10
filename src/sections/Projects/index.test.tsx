@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import { Projects } from './index';
 
 jest.mock('framer-motion', () => ({
@@ -29,7 +30,9 @@ describe('Projects', () => {
     render(<Projects />);
     const links = screen.getAllByRole('link');
     const hrefs = links.map(l => l.getAttribute('href'));
-    expect(hrefs).toContain('https://www.lightspeedsystems.com/security-compliance/lightspeed-parent-portal/');
+    expect(hrefs).toContain(
+      'https://www.lightspeedsystems.com/security-compliance/lightspeed-parent-portal/'
+    );
     expect(hrefs).toContain('https://assemblysoftware.com/neos');
   });
 

@@ -5,8 +5,8 @@ describe('Hero section', () => {
 
   it('displays the name and title', () => {
     cy.get('#hero').within(() => {
-      cy.contains('Ronaldo Monserrate').should('be.visible');
-      cy.contains('Fullstack Developer').should('be.visible');
+      cy.contains("Hello, I'm Ronaldo").should('be.visible');
+      cy.contains('Web Developer').should('be.visible');
     });
   });
 

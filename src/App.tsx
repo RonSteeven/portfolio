@@ -1,10 +1,12 @@
-import type React from 'react';
-import { motion } from 'framer-motion';
 import './index.css';
-import { Navbar, Footer } from './components';
-import { Hero, About, Experience, Skills, Projects, Contact } from './sections';
-import { useActiveSection } from './hooks';
+
+import { motion } from 'framer-motion';
+import type React from 'react';
+
+import { Footer, Navbar } from './components';
 import { SECTION_IDS } from './constants';
+import { useActiveSection } from './hooks';
+import { About, Contact, Experience, Hero, Projects, Skills } from './sections';
 
 function App(): React.JSX.Element {
   const activeSection = useActiveSection();
@@ -14,7 +16,7 @@ function App(): React.JSX.Element {
     <div className="min-h-screen">
       <Navbar brandName="RM" />
 
-      <main className="pt-16">
+      <main>
         <Hero />
         <About />
         <Experience />

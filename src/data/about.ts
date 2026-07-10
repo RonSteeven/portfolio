@@ -1,4 +1,4 @@
-import type { RoleCard } from '../types';
+import type { RoleCard } from '@/types';
 
 export const BIO = `I'm a Fullstack Developer with 7+ years of experience building production-grade web and mobile applications.
 I've worked across startups and agencies — from MLReef and Applaudo to BairesDev and Vokal — shipping features that reach real users.
