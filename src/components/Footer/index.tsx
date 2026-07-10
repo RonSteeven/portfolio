@@ -1,4 +1,5 @@
 import type React from 'react';
+
 import type { FooterProps } from './types';
 
 const CURRENT_YEAR = new Date().getFullYear();

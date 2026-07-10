@@ -1,4 +1,5 @@
 import type React from 'react';
+
 import type { CardProps } from './types';
 
 export const Card = ({ children, className = '' }: CardProps): React.JSX.Element => (

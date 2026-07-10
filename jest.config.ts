@@ -15,8 +15,11 @@ const config: Config = {
   // Resolve file extensions in order
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
 
-  // Static asset mocks
+  // Path aliases + static asset mocks
   moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+    // Vite `?raw` imports return the file content as a string; stub in Jest.
+    '\\?raw$': '<rootDir>/src/__mocks__/fileMock.ts',
     '\\.(svg|png|jpg|jpeg|gif|webp)$': '<rootDir>/src/__mocks__/fileMock.ts',
     '\\.(css|scss|sass)$': '<rootDir>/src/__mocks__/styleMock.ts',
   },

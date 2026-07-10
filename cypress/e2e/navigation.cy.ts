@@ -20,7 +20,7 @@ describe('Navigation', () => {
       cy.contains('nav button', 'Projects').click();
       // IntersectionObserver updates on scroll; wait for it to settle.
       cy.contains('nav button', 'Projects', { timeout: 4000 })
-        .should('have.class', 'text-[var(--color-accent-light)]');
+        .should('have.class', 'text-[var(--color-nav-link-active)]');
     });
   });
 

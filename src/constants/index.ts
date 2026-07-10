@@ -1,4 +1,4 @@
-import type { NavLink } from '../types';
+import type { NavLink } from '@/types';
 
 // ─── Section IDs ──────────────────────────────────────────────────────────────
 // Used by NavLinks and smooth-scroll anchors. Single source — no magic strings.

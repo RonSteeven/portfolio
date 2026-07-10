@@ -1,21 +1,28 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* ─── Portfolio Design Tokens ────────────────────────────────────────────── */
 
 :root {
-  /* Colors */
-  --color-bg: #0d0d14;
-  --color-bg-card: #13131f;
-  --color-border: #1f1f30;
-  --color-text: #9ca3af;
-  --color-text-heading: #f3f4f6;
-  --color-accent: #9061f9;
-  --color-accent-light: #a78bfa;
-  --color-tag-bg: rgba(144, 97, 249, 0.1);
-  --color-tag-border: rgba(144, 97, 249, 0.3);
+  /* Monochrome palette */
+  --color-bg: #dcdcdc; /* Light grey — body / content sections */
+  --color-bg-hero: #262626; /* Dark grey — hero */
+  --color-bg-card: #f5f5f5; /* White — cards on light bg */
+  --color-border: #3f3f3f;
+  --color-text: #3f3f3f; /* Grey for contrast — body copy on light bg */
+  --color-text-heading: #262626;
+  --color-text-inverse: #f5f5f5; /* White text on dark hero */
+  --color-accent: #262626;
+  --color-accent-light: #3f3f3f;
+  --color-tag-bg: rgba(63, 63, 63, 0.08);
+  --color-tag-border: rgba(63, 63, 63, 0.3);
+
+  /* Navbar link colors — chosen for legibility on both dark hero and light content bg */
+  --color-nav-link: #727272;
+  --color-nav-link-hover: #595959;
+  --color-nav-link-active: #727272;
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
 
   /* Transitions */
   --transition-base: 200ms ease;

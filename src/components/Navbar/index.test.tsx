@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import { Navbar } from './index';
 
 jest.mock('framer-motion', () => {
@@ -9,13 +10,9 @@ jest.mock('framer-motion', () => {
     AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
     motion: {
       span: (props: Record<string, unknown>) => <span {...props} />,
-      ul: ({
-        children,
-        ...rest
-      }: {
-        children: React.ReactNode;
-        [key: string]: unknown;
-      }) => <ul {...rest}>{children}</ul>,
+      ul: ({ children, ...rest }: { children: React.ReactNode; [key: string]: unknown }) => (
+        <ul {...rest}>{children}</ul>
+      ),
     },
   };
 });

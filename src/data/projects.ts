@@ -1,4 +1,4 @@
-import type { Project } from '../types';
+import type { Project } from '@/types';
 
 export const PROJECTS: Project[] = [
   {
@@ -13,7 +13,7 @@ export const PROJECTS: Project[] = [
     title: 'Parent Portal',
     company: 'Lightspeed Systems',
     description:
-      'Web platform allowing districts, states, and schools to control students\' internet access. Built with React, Redux, and GraphQL, hosted on AWS.',
+      "Web platform allowing districts, states, and schools to control students' internet access. Built with React, Redux, and GraphQL, hosted on AWS.",
     tags: ['React', 'Redux', 'GraphQL', 'Node.js', 'AWS', 'DynamoDB', 'SASS'],
     liveUrl: 'https://www.lightspeedsystems.com/security-compliance/lightspeed-parent-portal/',
   },

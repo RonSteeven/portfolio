@@ -1,4 +1,5 @@
 import type React from 'react';
+
 import type { SectionHeaderProps } from './types';
 
 export const SectionHeader = ({ title, subtitle }: SectionHeaderProps): React.JSX.Element => (

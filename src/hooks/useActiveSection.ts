@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { SECTION_IDS } from '../constants';
+import { useEffect, useState } from 'react';
+
+import { SECTION_IDS } from '@/constants';
 
 type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS];
 

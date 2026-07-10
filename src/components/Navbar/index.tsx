@@ -1,8 +1,10 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import type React from 'react';
-import { useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { NAV_LINKS } from '../../constants';
-import { useActiveSection } from '../../hooks';
+import { useCallback, useState } from 'react';
+
+import { NAV_LINKS } from '@/constants';
+import { useActiveSection } from '@/hooks';
+
 import type { NavbarProps } from './types';
 
 const scrollToSection = (sectionId: string): void => {
@@ -14,17 +16,19 @@ export const Navbar = ({ brandName = 'RM' }: NavbarProps): React.JSX.Element => 
   const activeSection = useActiveSection();
 
   const handleLinkClick = useCallback((sectionId: string): void => {
-    scrollToSection(sectionId);
     setMobileOpen(false);
+    // Defer the scroll so Framer Motion's exit animation on the mobile menu
+    // doesn't cancel the browser's smooth-scroll (200ms exit duration).
+    setTimeout(() => scrollToSection(sectionId), 220);
   }, []);
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-md">
+    <nav className="fixed top-0 z-50 w-full bg-[var(--color-bg-hero)]">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-0">
         <button
           type="button"
           onClick={() => handleLinkClick('hero')}
-          className="text-lg font-bold text-[var(--color-text-heading)]"
+          className="text-lg font-bold text-[var(--color-nav-link)] transition-colors hover:text-[var(--color-nav-link-hover)]"
         >
           {brandName}
         </button>
@@ -38,8 +42,8 @@ export const Navbar = ({ brandName = 'RM' }: NavbarProps): React.JSX.Element => 
                 onClick={() => handleLinkClick(link.sectionId)}
                 className={`text-sm font-medium transition-colors duration-[var(--transition-base)] ${
                   activeSection === link.sectionId
-                    ? 'text-[var(--color-accent-light)]'
-                    : 'text-[var(--color-text)] hover:text-[var(--color-text-heading)]'
+                    ? 'text-[var(--color-nav-link-active)] underline underline-offset-8 decoration-2'
+                    : 'text-[var(--color-nav-link)] hover:text-[var(--color-nav-link-hover)]'
                 }`}
               >
                 {link.label}
@@ -58,15 +62,15 @@ export const Navbar = ({ brandName = 'RM' }: NavbarProps): React.JSX.Element => 
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-[var(--color-text-heading)]"
+            className="block h-0.5 w-6 bg-[var(--color-nav-link)]"
           />
           <motion.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block h-0.5 w-6 bg-[var(--color-text-heading)]"
+            className="block h-0.5 w-6 bg-[var(--color-nav-link)]"
           />
           <motion.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6 bg-[var(--color-text-heading)]"
+            className="block h-0.5 w-6 bg-[var(--color-nav-link)]"
           />
         </button>
       </div>
@@ -88,8 +92,8 @@ export const Navbar = ({ brandName = 'RM' }: NavbarProps): React.JSX.Element => 
                   onClick={() => handleLinkClick(link.sectionId)}
                   className={`block w-full px-6 py-3 text-left text-sm font-medium transition-colors ${
                     activeSection === link.sectionId
-                      ? 'text-[var(--color-accent-light)]'
-                      : 'text-[var(--color-text)] hover:text-[var(--color-text-heading)]'
+                      ? 'text-[var(--color-nav-link-active)] underline underline-offset-8 decoration-2'
+                      : 'text-[var(--color-nav-link)] hover:text-[var(--color-nav-link-hover)]'
                   }`}
                 >
                   {link.label}
