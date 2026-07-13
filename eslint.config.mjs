@@ -28,10 +28,13 @@ export default [
         console: 'readonly',
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
         IntersectionObserver: 'readonly',
         HTMLElement: 'readonly',
         HTMLAnchorElement: 'readonly',
         HTMLButtonElement: 'readonly',
+        HTMLPreElement: 'readonly',
       },
     },
     plugins: {
