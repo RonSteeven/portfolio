@@ -19,7 +19,9 @@ export interface Project {
 // ─── Hero ────────────────────────────────────────────────────────────────────
 
 export interface HeroData {
+  greeting: string;
   name: string;
+  lastName: string;
   title: string;
   roleTags: string[];
   ctaPrimary: { label: string; sectionId: string };

@@ -7,13 +7,21 @@ jest.mock('framer-motion', () => ({
     div: ({ children, ...rest }: { children: React.ReactNode; [k: string]: unknown }) => (
       <div {...rest}>{children}</div>
     ),
+    span: ({ children, ...rest }: { children: React.ReactNode; [k: string]: unknown }) => (
+      <span {...rest}>{children}</span>
+    ),
   },
 }));
 
 describe('Hero', () => {
   it('renders the name and title', () => {
     render(<Hero />);
-    expect(screen.getByText("Hello, I'm Ronaldo")).toBeInTheDocument();
+    expect(screen.getByText("Hi there! I'm")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        (_, element) => element?.tagName.toLowerCase() === 'h1' && element.textContent === 'Ronaldo Monserrate'
+      )
+    ).toBeInTheDocument();
     expect(screen.getByText('Web Developer')).toBeInTheDocument();
   });
 
