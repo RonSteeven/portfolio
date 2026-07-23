@@ -44,7 +44,10 @@ export const Hero = (): React.JSX.Element => {
               {HERO.greeting}
             </motion.span>
           </h2>
-          <h1 className="mb-4 text-4xl font-bold text-[var(--color-text-inverse)] sm:text-5xl lg:text-6xl animated-text">
+          <h1
+            translate="no"
+            className="notranslate mb-4 text-4xl font-bold text-[var(--color-text-inverse)] sm:text-5xl lg:text-6xl animated-text"
+          >
             {HERO.name.split('').map((char, index) => (
               <span
                 key={`${char}-${index}`}
