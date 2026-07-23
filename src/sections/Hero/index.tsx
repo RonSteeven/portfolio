@@ -35,8 +35,31 @@ export const Hero = (): React.JSX.Element => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: ANIMATION.DURATION }}
         >
-          <h1 className="mb-4 text-4xl font-bold text-[var(--color-text-inverse)] sm:text-5xl lg:text-6xl">
-            {HERO.name}
+          <h2 className="mb-4 text-2xl font-bold text-[var(--color-text-inverse)] sm:text-3xl lg:text-4xl">
+            <motion.span
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 }}
+            >
+              {HERO.greeting}
+            </motion.span>
+          </h2>
+          <h1 className="mb-4 text-4xl font-bold text-[var(--color-text-inverse)] sm:text-5xl lg:text-6xl animated-text">
+            {HERO.name.split('').map((char, index) => (
+              <span
+                key={`${char}-${index}`}
+              >
+                {char}
+              </span>
+            ))}
+            {' '}
+            {HERO.lastName.split('').map((char, index) => (
+              <span
+                key={`${char}-${index}`}
+              >
+                {char}
+              </span>
+            ))}
           </h1>
           <h2 className="mb-6 text-2xl text-[var(--color-nav-link)] sm:text-3xl">{HERO.title}</h2>
 

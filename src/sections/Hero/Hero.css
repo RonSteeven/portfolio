@@ -8,3 +8,18 @@
     opacity: 0;
   }
 }
+
+.animated-text {
+  cursor: pointer;
+  position: relative;
+}
+
+.animated-text span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
+}
+
+.animated-text span:hover {
+  transform: scale(1.3) translateY(-10px);
+  color: var( --color-nav-link-hover);
+}

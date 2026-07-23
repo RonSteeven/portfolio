@@ -47,7 +47,7 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2018',
     endDate: '2019',
     employmentType: 'Full-time',
-    stack: ['React', 'Vue', 'React Native', 'Redux', '.NET Core'],
+    stack: ['React', 'Vue', 'React Native', 'Redux', '.NET Core', 'PHP'],
   },
   {
     company: 'Sebioca',
