@@ -7,7 +7,29 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2024',
     endDate: 'Present',
     employmentType: 'Full-time',
-    stack: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind CSS'],
+    location: 'Remote',
+    summary:
+      'Leading fullstack development on client-facing products, owning features end to end from API design to polished React interfaces.',
+    highlights: [
+      'Built a company-wide component library from scratch using Next.js, TypeScript, MUI, and Storybook, standardizing UI across multiple product teams.',
+      'Designed custom React hooks for data fetching and reusable component patterns, reducing duplicated logic across projects.',
+      'Established code quality standards by defining ESLint rules and implementing Husky pre-push hooks; drove Jest test coverage across the library.',
+      'Managed state and API integration with Redux; reorganized SASS architecture for maintainability.',
+      'Integrated third-party services including Segment (analytics), Cookiebot (consent management), and Bloomreach (commerce).',
+    ],
+    stack: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Redux',
+      'MUI',
+      'Storybook',
+      'Jest',
+      'SASS',
+      'Azure',
+      'Segment',
+      'Bloomreach',
+    ],
   },
   {
     company: 'MLReef',
@@ -15,7 +37,18 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2022',
     endDate: '2024',
     employmentType: 'Full-time',
-    stack: ['React', 'Redux', 'TypeScript', 'Node.js', 'GraphQL'],
+    location: 'Remote',
+    summary:
+      'Built and maintained a collaborative machine-learning platform, shipping data-heavy React views backed by a GraphQL API.',
+    highlights: [
+      'Modernized a legacy codebase by migrating class-based React components to functional components with hooks, improving maintainability.',
+      'Built a Storybook component library from scratch with React, TypeScript, MUI, and Tanstack Query.',
+      'Implemented Google OAuth authentication and developed Node.js backend services.',
+      'Added application monitoring with Bugsnag to speed up production issue triage.',
+      'Wrote unit and integration tests with React Testing Library; enforced linting standards via ESLint and Husky.',
+      'Managed repositories, pipelines, and boards on Azure DevOps.',
+    ],
+    stack: ['React', 'Node.js', 'TypeScript', 'Docker', 'Tanstack Query', 'MUI', 'Bugsnag', 'Azure', 'OAuth'],
   },
   {
     company: 'Applaudo Studios',
@@ -23,7 +56,17 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2021',
     endDate: '2023',
     employmentType: 'Part-time',
-    stack: ['React', 'Redux', 'GraphQL', 'AWS', 'SASS'],
+    location: 'Remote',
+    summary:
+      'Developed features for enterprise clients with a strong focus on GraphQL APIs and cloud-native delivery on AWS.',
+    highlights: [
+      'Lightspeed Parent Portal — Built a full web platform with React, Redux, and GraphQL; implemented Express.js backend services with AWS/DynamoDB storage.',
+      'Wrote unit tests for platform reliability and mentored an intern developer.',
+      'Lightspeed Classroom Management — Designed and built a React SPA supporting URL push, tab/site blocking, and screen sharing, with Redux state management and GraphQL data layer.',
+      'Classroom Management Backend — Served as principal developer on a TypeScript/Node.js REST API backing the Classroom Management product, deployed on AWS with DynamoDB.',
+      'Visual Studio Chrome Extension — Built a Chrome extension in TypeScript integrating the OpenAI API to surface AI-assisted responses to developers inside their IDE.',
+    ],
+    stack: ['React', 'Redux', 'GraphQL', 'Node.js', 'Express.js', 'TypeScript', 'AWS', 'DynamoDB', 'OpenAI API'],
   },
   {
     company: 'BairesDev',
@@ -31,7 +74,16 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2021',
     endDate: '2021',
     employmentType: 'Part-time',
-    stack: ['React', 'MobX', 'C#', 'Azure', 'SASS'],
+    location: 'Remote',
+    summary:
+      'Contributed to a large-scale frontend using MobX for state management alongside a C#/Azure backend.',
+    highlights: [
+      'Leads — Built a React Native mobile app with Redux for sharing temporary-worker leads.',
+      'Tires and Wheels — Shipped new features and bug fixes on a React/GraphQL retail platform; integrated PayPal payments.',
+      'Neos Assembly Legal — Built a case/document/contact management platform for legal firms using React, MobX, and SASS, with a C#/MySQL backend and Microsoft Office 365 integration.',
+      'PSA - Successfully created new endpoints and bugs fixing of the existing endpoints in the backend using C# and .NET Core. Added support for new brands on Paypal integration for payment processing. CRUD operations on PostgreSQL database and implemented new webhooks for payment processing.',
+    ],
+    stack: ['React', 'React Native', 'Redux', 'GraphQL', 'MobX', 'C#', 'MySQL', 'Azure', 'PayPal', 'PostgreSQL', '.NET Core'],
   },
   {
     company: 'Coolhumans',
@@ -39,7 +91,15 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2019',
     endDate: '2021',
     employmentType: 'Full-time',
-    stack: ['React', 'Redux', 'SASS', 'JavaScript'],
+    location: 'Remote',
+    summary:
+      'Owned frontend development for consumer-facing products, translating designs into responsive, accessible React interfaces.',
+    highlights: [
+      'MisFans — Built a social platform for influencer monetization with React, Next.js, Redux, Firebase, and TypeScript.',
+      'Built the backend with Node.js, Express, MongoDB, JWT auth, and Docker; delivered CRUD APIs to power the platform.',
+      'Shipped a React Native companion mobile app with gesture-based interactions and animations.',
+    ],
+    stack: ['React', 'Next.js', 'Node.js', 'MongoDB', 'Firebase', 'React Native', 'Docker'],
   },
   {
     company: 'Grupo Link / Hiberus',
@@ -47,7 +107,16 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2018',
     endDate: '2019',
     employmentType: 'Full-time',
-    stack: ['React', 'Vue', 'React Native', 'Redux', '.NET Core', 'PHP'],
+    location: 'Ecuador',
+    summary:
+      'Worked across web and mobile stacks, delivering features in React, Vue, and React Native on top of .NET Core and PHP services.',
+    highlights: [
+      'Built an internal employee-monitoring tool with real-time chat using React, Redux, Socket.IO, and a Node.js/Express/MongoDB backend.',
+      'Principal developer on a Vue.js social network for pet owners, and led a WPF/C# desktop application with video call support.',
+      'Delivered an admin dashboard and companion mobile app (React, React Native, Redux) plus a .NET Core/MySQL backend for a corporate client (Corporación Favorita).',
+      'Built a microservices-based API on Azure using Node.js, Express, MySQL, RabbitMQ, and Redis.',
+    ],
+    stack: ['React', 'Node.js', 'Vue.js', 'React Native', 'Socket.IO', '.NET Core', 'Azure', 'RabbitMQ', 'Redis'],
   },
   {
     company: 'Sebioca',
@@ -55,6 +124,13 @@ export const EXPERIENCE: Experience[] = [
     startDate: '2017',
     endDate: '2018',
     employmentType: 'Full-time',
-    stack: ['React', 'TypeScript', 'C# .NET Core', 'React Native'],
+    location: 'Ecuador',
+    summary:
+      'First professional role building fullstack features with React and a C# .NET Core backend, plus a companion React Native app.',
+    highlights: [
+      'Rebuilt the company website as a React/Redux/TypeScript single-page application.',
+      'Designed and built an end-to-end product-control platform (React, Redux, TypeScript, React Native) with a C#/.NET Core and MySQL backend, including Entity Framework integration.',
+    ],
+    stack: ['React', 'Redux', 'TypeScript', 'React Native', 'C#/.NET Core', 'MySQL', 'Azure'],
   },
 ];

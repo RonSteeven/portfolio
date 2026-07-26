@@ -44,26 +44,33 @@ export const Hero = (): React.JSX.Element => {
               {HERO.greeting}
             </motion.span>
           </h2>
-          <h1
-            translate="no"
-            className="notranslate mb-4 text-4xl font-bold text-[var(--color-text-inverse)] sm:text-5xl lg:text-6xl animated-text"
-          >
-            {HERO.name.split('').map((char, index) => (
-              <span
-                key={`${char}-${index}`}
+          <div className="flex flex-wrap mb-4 justify-center gap-2 text-[var(--color-text-inverse)] sm:gap-4">
+            <h1
+              translate="no"
+              className="notranslate text-4xl font-bold text-[var(--color-text-inverse)] sm:text-5xl lg:text-6xl animated-text"
               >
-                {char}
-              </span>
-            ))}
+              {HERO.name.split('').map((char, index) => (
+                <span
+                key={`${char}-${index}`}
+                >
+                  {char}
+                </span>
+              ))}
+            </h1>
             {' '}
-            {HERO.lastName.split('').map((char, index) => (
-              <span
-                key={`${char}-${index}`}
+            <h1
+              translate="no"
+              className="notranslate text-4xl font-bold text-[var(--color-text-inverse)] sm:text-5xl lg:text-6xl animated-text"
               >
-                {char}
-              </span>
-            ))}
-          </h1>
+              {HERO.lastName.split('').map((char, index) => (
+                <span
+                key={`${char}-${index}`}
+                >
+                  {char}
+                </span>
+              ))}
+            </h1>
+          </div>
           <h2 className="mb-6 text-2xl text-[var(--color-nav-link)] sm:text-3xl">{HERO.title}</h2>
 
           <div className="mb-8 flex flex-wrap justify-center gap-2">

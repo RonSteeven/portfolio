@@ -22,20 +22,40 @@ export const Button = ({
   children,
   href,
   onClick,
+  disabled = false,
+  ...rest
 }: ButtonProps): React.JSX.Element => {
   const palette = onDark ? VARIANTS.light : VARIANTS.dark;
-  const classes = `inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition-colors duration-[var(--transition-base)] ${palette[variant]}`;
+  const baseClasses = `inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition-colors duration-[var(--transition-base)]`;
+  const variantClasses = disabled
+    ? 'cursor-not-allowed opacity-50'
+    : palette[variant];
+  const classes = `${baseClasses} ${variantClasses}`;
+
+  // Extract only aria-* and data-* attributes for use with both button and anchor
+  const a11yProps = Object.fromEntries(
+    Object.entries(rest).filter(([key]) => key.startsWith('aria-') || key.startsWith('data-'))
+  );
 
   if (href) {
     return (
-      <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        className={classes}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-disabled={disabled}
+        onClick={disabled ? (e: React.MouseEvent) => e.preventDefault() : undefined}
+        style={disabled ? { pointerEvents: 'none' } : undefined}
+        {...a11yProps}
+      >
         {children}
       </a>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} className={classes}>
+    <button type="button" onClick={onClick} className={classes} disabled={disabled} {...rest}>
       {children}
     </button>
   );

@@ -25,9 +25,9 @@ const PROJECTS = [
     tag: 'React Native',
   },
   {
-    title: 'Sebioca',
-    url: 'http://www.sebioca.espol.edu.ec/',
-    tag: 'TypeScript',
+    title: 'PSA',
+    url: 'https://www.psacard.com/',
+    tag: 'C#',
   },
 ];
 
