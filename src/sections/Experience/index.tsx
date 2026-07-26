@@ -12,7 +12,7 @@ export const Experience = (): React.JSX.Element => {
   return (
     <section
       id={SECTION_IDS.EXPERIENCE}
-      className="flex min-h-screen items-center justify-center px-6 py-20"
+      className="flex min-h-dvh items-center justify-center px-6 py-14"
     >
       <motion.div ref={ref} {...motionProps} className="w-full max-w-4xl">
         <SectionHeader

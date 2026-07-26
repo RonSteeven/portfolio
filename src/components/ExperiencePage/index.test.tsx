@@ -28,7 +28,13 @@ jest.mock('framer-motion', () => {
         get: (_target: unknown, tag: string | symbol) => {
           if (typeof tag !== 'string') return undefined;
           return ({ children, ...rest }: { children?: unknown; [k: string]: unknown }) =>
-            ReactLib.createElement(tag, { ...strip(rest), 'data-testid': tag === 'div' ? 'page' : undefined }, children);
+            // Only the interactive page has an onClick handler; the shading
+            // overlay does not, so tag just the page for querying.
+            ReactLib.createElement(
+              tag,
+              { ...strip(rest), 'data-testid': rest.onClick ? 'page' : undefined },
+              children
+            );
         },
       }
     ),

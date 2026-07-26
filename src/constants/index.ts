@@ -44,9 +44,8 @@ export const BOOK = {
   DRAG_ELASTIC: 0.4, // resistance while dragging past the edge
   FLICK_VELOCITY: 500, // px/s flick that flips regardless of distance
   CLICK_SLOP: 8, // movement under this counts as a click, not a drag
-  FLIP_DURATION: 0.45, // seconds for the page-turn transition
-  MAX_ROTATE: 8, // degrees the page tilts as it turns
-  PAGE_OFFSET: 320, // px the incoming/outgoing page travels
+  FLIP_DURATION: 0.7, // seconds for the 3D page-turn transition
+  PERSPECTIVE: 2000, // px of 3D perspective depth on the book container
 } as const;
 
 // ─── Navigation Links ─────────────────────────────────────────────────────────

@@ -42,11 +42,11 @@ export const PROJECTS: Project[] = [
     liveUrl: 'https://www.linkdigital.es/en/work/corporacion-favorita',
   },
   {
-    title: 'Sebioca',
-    company: 'ESPOL',
+    title: 'PSA',
+    company: 'BairesDev - Collectors Universe',
     description:
-      'Full product control platform from inception to sale — React SPA with a C# .NET Core backend and React Native mobile app.',
-    tags: ['React', 'Redux', 'TypeScript', 'SASS', 'React Native', 'C#', '.NET Core'],
-    liveUrl: 'http://www.sebioca.espol.edu.ec/',
+      'Web platform for collectors to manage their collections, with PayPal integration for payment processing. Built with React, Redux, GraphQL, and C#/.NET Core backend.',
+    tags: ['Paypal integration', 'Webhooks', 'Payment Processing', 'PostgreSQL', 'C#', '.NET Core', 'React'],
+    liveUrl: 'https://www.psacard.com/',
   },
 ];

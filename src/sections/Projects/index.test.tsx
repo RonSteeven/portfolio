@@ -23,7 +23,7 @@ describe('Projects', () => {
     expect(screen.getByText('Classroom Management')).toBeInTheDocument();
     expect(screen.getByText('Neos Assembly Legal')).toBeInTheDocument();
     expect(screen.getByText('Somos Uno')).toBeInTheDocument();
-    expect(screen.getByText('Sebioca')).toBeInTheDocument();
+    expect(screen.getByText('PSA')).toBeInTheDocument();
   });
 
   it('renders correct live URLs', () => {

@@ -1,4 +1,4 @@
-import { motion, type PanInfo } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type React from 'react';
 import { useRef } from 'react';
 
@@ -7,23 +7,41 @@ import { BOOK } from '@/constants';
 
 import type { ExperiencePageProps } from './types';
 
+const FLIP_EASE = [0.33, 0, 0.2, 1] as const;
+
+/**
+ * 3D page-turn. Pages rotate around their left edge (the spine). Because the
+ * back face is hidden, the turning page vanishes as it passes 90°, revealing
+ * the page stacked beneath it.
+ *  - forward: the current page peels away to the left (0 → -180°) on top,
+ *    while the next page waits flat beneath it.
+ *  - back: the previous page drops back in from the left (-180 → 0°) on top,
+ *    while the current page sits flat beneath it.
+ */
 const motionVariants = {
   enter: (direction: number) => ({
-    x: direction >= 0 ? BOOK.PAGE_OFFSET : -BOOK.PAGE_OFFSET,
-    rotate: direction >= 0 ? BOOK.MAX_ROTATE : -BOOK.MAX_ROTATE,
-    opacity: 0,
+    rotateY: direction >= 0 ? 0 : -180,
+    zIndex: direction >= 0 ? 10 : 30,
   }),
   center: {
-    x: 0,
-    rotate: 0,
-    opacity: 1,
-    transition: { duration: BOOK.FLIP_DURATION },
+    rotateY: 0,
+    zIndex: 20,
+    transition: { duration: BOOK.FLIP_DURATION, ease: FLIP_EASE },
   },
   exit: (direction: number) => ({
-    x: direction >= 0 ? -BOOK.PAGE_OFFSET : BOOK.PAGE_OFFSET,
-    rotate: direction >= 0 ? -BOOK.MAX_ROTATE : BOOK.MAX_ROTATE,
-    opacity: 0,
-    transition: { duration: BOOK.FLIP_DURATION },
+    rotateY: direction >= 0 ? -180 : 0,
+    zIndex: direction >= 0 ? 30 : 10,
+    transition: { duration: BOOK.FLIP_DURATION, ease: FLIP_EASE },
+  }),
+};
+
+/** Darkens the turning page so it reads as catching light as it lifts. */
+const shadeVariants = {
+  enter: (direction: number) => ({ opacity: direction >= 0 ? 0 : 0.45 }),
+  center: { opacity: 0, transition: { duration: BOOK.FLIP_DURATION, ease: FLIP_EASE } },
+  exit: (direction: number) => ({
+    opacity: direction >= 0 ? 0.45 : 0,
+    transition: { duration: BOOK.FLIP_DURATION, ease: FLIP_EASE },
   }),
 };
 
@@ -42,18 +60,6 @@ export const ExperiencePage = ({
 }: ExperiencePageProps): React.JSX.Element => {
   // Set on drag end so the click event framer fires afterwards can be ignored.
   const didDrag = useRef(false);
-
-  const handleDragEnd = (_event: unknown, info: PanInfo): void => {
-    const { offset, velocity } = info;
-    didDrag.current = Math.abs(offset.x) > BOOK.CLICK_SLOP;
-
-    const flipForward =
-      offset.x < -BOOK.DRAG_THRESHOLD || velocity.x < -BOOK.FLICK_VELOCITY;
-    const flipBack = offset.x > BOOK.DRAG_THRESHOLD || velocity.x > BOOK.FLICK_VELOCITY;
-
-    if (flipForward) onNext();
-    else if (flipBack) onPrev();
-  };
 
   const handleClick = (event: React.MouseEvent<HTMLElement>): void => {
     if (didDrag.current) {
@@ -74,16 +80,23 @@ export const ExperiencePage = ({
       initial="enter"
       animate="center"
       exit="exit"
-      drag={reducedMotion ? false : 'x'}
-      dragSnapToOrigin
       dragElastic={BOOK.DRAG_ELASTIC}
       dragConstraints={{ left: 0, right: 0 }}
-      onDragEnd={handleDragEnd}
       onClick={handleClick}
-      className="absolute inset-0 flex cursor-grab select-none flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] shadow-lg active:cursor-grabbing"
+      style={{ transformOrigin: 'left center', transformStyle: 'preserve-3d' }}
+      className="absolute inset-0 flex cursor-grab select-none flex-col overflow-hidden rounded-r-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] shadow-2xl [backface-visibility:visible] active:cursor-grabbing"
     >
+      {/* Lighting overlay — darkens the page as it turns. */}
+      {!reducedMotion && (
+        <motion.div
+          aria-hidden
+          variants={shadeVariants}
+          className="pointer-events-none absolute inset-0 z-10 rounded-xl bg-gradient-to-l from-black/60 to-transparent"
+        />
+      )}
+
       {/* Fixed header */}
-      <div className="flex-shrink-0 border-b border-[var(--color-border-light)] px-6 py-4 sm:px-8 sm:py-6">
+      <div className="flex-shrink-0 px-4 py-2 sm:px-4 sm:py-4">
         <div className="flex items-baseline justify-between gap-x-4 gap-y-1">
           <div>
             <h3 className="text-xl font-semibold text-[var(--color-text-heading)]">{job.role}</h3>
@@ -99,10 +112,11 @@ export const ExperiencePage = ({
         </div>
       </div>
 
-      {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto px-6 py-4 sm:px-8 sm:py-6">
+      {/* Scrollable content — dir="rtl" moves the scrollbar to the left (spine
+          side); the inner list is reset to dir="ltr" so text reads normally. */}
+      <div dir="ltr" className="flex-1 overflow-y-auto px-4 py-2 sm:px-4 sm:py-4">
         {job.highlights && job.highlights.length > 0 && (
-          <ul className="list-disc space-y-1.5 pl-5 text-sm text-[var(--color-text)]">
+          <ul dir="ltr" className="list-disc space-y-1.5 pl-5 text-sm text-[var(--color-text)]">
             {job.highlights.map(highlight => (
               <li key={highlight}>{highlight}</li>
             ))}
@@ -111,7 +125,7 @@ export const ExperiencePage = ({
       </div>
 
       {/* Fixed tags footer */}
-      <div className="flex-shrink-0 border-t border-[var(--color-border-light)] px-6 py-4 sm:px-8 sm:py-6">
+      <div className="flex-shrink-0 px-4 py-2 sm:px-4 sm:py-4">
         <div className="flex flex-wrap gap-2">
           {job.stack.map(tech => (
             <Tag key={tech} label={tech} />

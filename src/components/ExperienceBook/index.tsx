@@ -2,6 +2,7 @@ import { AnimatePresence, useReducedMotion } from 'framer-motion';
 import type React from 'react';
 
 import { ExperiencePage } from '@/components/ExperiencePage';
+import { BOOK } from '@/constants';
 import { useBookPages } from '@/hooks';
 
 import { Button } from '../Button';
@@ -33,9 +34,10 @@ export const ExperienceBook = ({ pages }: ExperienceBookProps): React.JSX.Elemen
         aria-label="Work experience"
         tabIndex={0}
         onKeyDown={handleKeyDown}
+        style={{ perspective: `${BOOK.PERSPECTIVE}px` }}
         className="relative h-[36rem] rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] sm:h-[34rem] md:h-[32rem] lg:h-[30rem]"
       >
-        <AnimatePresence custom={direction} mode="wait" initial={false}>
+        <AnimatePresence custom={direction} mode="popLayout" initial={false}>
           <ExperiencePage
             key={`${job.company}-${job.startDate}`}
             job={job}
@@ -54,7 +56,7 @@ export const ExperienceBook = ({ pages }: ExperienceBookProps): React.JSX.Elemen
           aria-label="Jump to Previous experience"
           disabled={!canPrev}
         >
-          ← Prev
+          ←
         </Button>
 
         <div className="flex flex-col items-center gap-1 text-center text-xs text-[var(--color-text)] sm:text-sm">
@@ -84,7 +86,7 @@ export const ExperienceBook = ({ pages }: ExperienceBookProps): React.JSX.Elemen
           aria-label="Jump to Next experience"
           disabled={!canNext}
         >
-          Next →
+          →
         </Button>
       </div>
     </div>
