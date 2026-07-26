@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/portfolio/', // Change to '/' if using ronaldo-monserrate.github.io (root domain)
+  base: process.env.VITE_BASE_URL || '/portfolio/', // PR previews use /pr-{number}/, production uses /portfolio/
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

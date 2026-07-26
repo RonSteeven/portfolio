@@ -1,5 +1,7 @@
 export { Button } from './Button';
 export { Card } from './Card';
+export { ExperienceBook } from './ExperienceBook';
+export { ExperiencePage } from './ExperiencePage';
 export { Footer } from './Footer';
 export { IconLink } from './IconLink';
 export { Navbar } from './Navbar';

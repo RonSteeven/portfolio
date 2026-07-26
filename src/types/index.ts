@@ -55,6 +55,9 @@ export interface Experience {
   endDate: string; // "Present" for current role
   employmentType: EmploymentType;
   stack: string[];
+  location?: string;
+  summary?: string; // one-paragraph blurb shown on the book page
+  highlights?: string[]; // 2–4 achievement bullets
 }
 
 // ─── Contact ──────────────────────────────────────────────────────────────────

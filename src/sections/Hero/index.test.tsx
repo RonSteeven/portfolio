@@ -17,11 +17,11 @@ describe('Hero', () => {
   it('renders the name and title', () => {
     render(<Hero />);
     expect(screen.getByText("Hi there! I'm")).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        (_, element) => element?.tagName.toLowerCase() === 'h1' && element.textContent === 'Ronaldo Monserrate'
-      )
-    ).toBeInTheDocument();
+    // Name is split into character spans across two h1 elements
+    const h1s = screen.getAllByRole('heading', { level: 1 });
+    const nameText = h1s.slice(0, 2).map(h => h.textContent).join('');
+    expect(nameText).toContain('Ronaldo');
+    expect(nameText).toContain('Monserrate');
     expect(screen.getByText('Web Developer')).toBeInTheDocument();
   });
 

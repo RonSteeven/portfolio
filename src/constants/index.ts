@@ -36,6 +36,19 @@ export const STAGGER_CONTAINER_VARIANTS = {
   },
 } as const;
 
+// ─── Experience Book ──────────────────────────────────────────────────────────
+// Config for the draggable "book" of experience pages. No magic numbers in JSX.
+
+export const BOOK = {
+  DRAG_THRESHOLD: 100, // px of horizontal drag needed to flip a page
+  DRAG_ELASTIC: 0.4, // resistance while dragging past the edge
+  FLICK_VELOCITY: 500, // px/s flick that flips regardless of distance
+  CLICK_SLOP: 8, // movement under this counts as a click, not a drag
+  FLIP_DURATION: 0.45, // seconds for the page-turn transition
+  MAX_ROTATE: 8, // degrees the page tilts as it turns
+  PAGE_OFFSET: 320, // px the incoming/outgoing page travels
+} as const;
+
 // ─── Navigation Links ─────────────────────────────────────────────────────────
 
 export const NAV_LINKS: NavLink[] = [

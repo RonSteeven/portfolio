@@ -44,7 +44,9 @@ export default [
       'simple-import-sort': simpleImportSort,
     },
     rules: {
-      // TypeScript
+      // TypeScript — disable the base rule in favour of the TS-aware one, which
+      // understands type signatures and honours the `^_` ignore pattern.
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/consistent-type-imports': [
