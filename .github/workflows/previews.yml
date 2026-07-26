@@ -30,10 +30,12 @@ jobs:
         run: npm test
 
       # ── Build with PR preview base URL ─────────────────────────────────────
+      # Derive the base path from the actual repo name so its case always matches
+      # the GitHub Pages URL (paths are case-sensitive).
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_URL: /Portfolio/pr-${{ github.event.number }}/
+          VITE_BASE_URL: /${{ github.event.repository.name }}/pr-${{ github.event.number }}/
 
       # ── Deploy preview to GitHub Pages ─────────────────────────────────────
       - name: Deploy preview to GitHub Pages
