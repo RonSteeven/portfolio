@@ -45,8 +45,8 @@ export const PROJECTS: Project[] = [
     title: 'PSA',
     company: 'BairesDev - Collectors Universe',
     description:
-      'Web platform for collectors to manage their collections, with PayPal integration for payment processing. Built with React, Redux, GraphQL, and C#/.NET Core backend.',
-    tags: ['Paypal integration', 'Webhooks', 'Payment Processing', 'PostgreSQL', 'C#', '.NET Core', 'React'],
+      'Web platform for collectors to manage their collections, with Stripe integration for payment processing. Built with React, Redux, GraphQL, and C#/.NET Core backend.',
+    tags: ['Stripe integration', 'Webhooks', 'Payment Processing', 'PostgreSQL', 'C#', '.NET Core', 'React'],
     liveUrl: 'https://www.psacard.com/',
   },
 ];
