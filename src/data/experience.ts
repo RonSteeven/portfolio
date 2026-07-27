@@ -81,9 +81,9 @@ export const EXPERIENCE: Experience[] = [
       'Leads — Built a React Native mobile app with Redux for sharing temporary-worker leads.',
       'Tires and Wheels — Shipped new features and bug fixes on a React/GraphQL retail platform; integrated PayPal payments.',
       'Neos Assembly Legal — Built a case/document/contact management platform for legal firms using React, MobX, and SASS, with a C#/MySQL backend and Microsoft Office 365 integration.',
-      'PSA - Successfully created new endpoints and bugs fixing of the existing endpoints in the backend using C# and .NET Core. Added support for new brands on Paypal integration for payment processing. CRUD operations on PostgreSQL database and implemented new webhooks for payment processing.',
+      'PSA - Successfully created new endpoints and bugs fixing of the existing endpoints in the backend using C# and .NET Core. Added support for new brands on Stripe integration for payment processing. CRUD operations on PostgreSQL database and implemented new webhooks for payment processing.',
     ],
-    stack: ['React', 'React Native', 'Redux', 'GraphQL', 'MobX', 'C#', 'MySQL', 'Azure', 'PayPal', 'PostgreSQL', '.NET Core'],
+    stack: ['React', 'React Native', 'Redux', 'GraphQL', 'MobX', 'C#', 'MySQL', 'Azure', 'Stripe', 'PostgreSQL', '.NET Core'],
   },
   {
     company: 'Coolhumans',
